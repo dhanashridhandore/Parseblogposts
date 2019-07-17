@@ -6,7 +6,7 @@ Class GenerateJSON {
  function fGenerateJSONMethod($filename) {
 	$aArray= new array();
 	$sMyfileData = file_get_contents($filename);	
-	$rows = explode("\n", $sMyfileData);
+	$rows = explode("\n",addslashes($sMyfileData));
 	foreach ($sMyfileData as $row) {
 	 $aJSONInput = explode(":", $row);   
 	 $sKey = $aJSONInput[0];  
