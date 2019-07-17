@@ -21,7 +21,11 @@ Class GenerateJSON {
 	SELF::	array_push($aOutput,$aArray);
 }
  function fOutputMethod(){
-    return JSON_encode (SELF::$aOutput, 1);
+	$sJSONData = JSON_encode (SELF::$aOutput, 1);
+	$myfile = fopen("output.txt", "w") ;	
+	fwrite($myfile, $aJSONData);
+	fclose($myfile);
+	return $sJSONData;
  }
 }
 // End of Class file
